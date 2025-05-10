@@ -1,0 +1,256 @@
+/* Reset and base styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0 0 1rem 0;
+    color: #3498db;
+    font-weight: 700;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.count-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.count-value {
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Main section styles */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.timer-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.timer-value {
+    font-weight: 700;
+    color: #2980b9;
+}
+
+/* Button styles */
+.smoke-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.smoke-button:hover {
+    background-color: #c0392b;
+}
+
+.smoke-button:active,
+.smoke-button.active {
+    transform: scale(0.95);
+}
+
+.button-text {
+    text-transform: uppercase;
+}
+
+/* Records section styles */
+.records-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.records-container h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.records-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.records-list li {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.records-list li:last-child {
+    border-bottom: none;
+}
+
+.record-time {
+    font-weight: 600;
+    min-width: 60px;
+}
+
+.record-elapsed {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .smoke-button {
+        width: 180px;
+        height: 180px;
+        font-size: 1.3rem;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Install button */
+.install-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: none; /* Hidden by default, shown when installable */
+}
+
+.install-button:hover {
+    background-color: #2980b9;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+}
+
+.notification.info {
+    background-color: #3498db;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+.notification.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

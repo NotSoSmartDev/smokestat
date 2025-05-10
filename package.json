@@ -1,0 +1,27 @@
+{
+  "name": "smokestat",
+  "version": "1.0.0",
+  "description": "A PWA to track cigarette consumption",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "pwa",
+    "smoking",
+    "tracker",
+    "health"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "vite-plugin-pwa": "^0.16.4",
+    "workbox-window": "^7.0.0"
+  },
+  "dependencies": {
+    "idb": "^7.1.1"
+  }
+}
