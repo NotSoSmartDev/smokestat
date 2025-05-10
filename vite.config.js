@@ -1,25 +1,22 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { resolve } from 'path';
+import fs from 'fs';
+import path from 'path';
 
 // Get the repository name from package.json for GitHub Pages
-import { readFileSync } from 'fs';
-const pkgJson = JSON.parse(readFileSync('./package.json', 'utf8'));
+const packageJsonPath = path.resolve('./package.json');
+const pkgJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 const repoName = pkgJson.homepage ? pkgJson.homepage.split('/').pop() : '';
 
 export default defineConfig({
-  root: 'public',
   base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'public/index.html'),
-      },
-    },
+    sourcemap: true,
   },
-  publicDir: 'assets',
+  publicDir: 'public/assets',
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
@@ -35,7 +32,7 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait',
         start_url: './',
-        scope: '.',
+        scope: './',
         icons: [
           {
             src: 'icons/icon-192x192.png',
@@ -90,5 +87,8 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src')
     }
+  },
+  server: {
+    open: true
   }
 });

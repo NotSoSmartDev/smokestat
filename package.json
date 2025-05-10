@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:pages": "node deploy-pages.js"
   },
   "keywords": [
     "pwa",
@@ -27,5 +28,10 @@
   "dependencies": {
     "idb": "^7.1.1"
   },
-  "homepage": "https://notsosmartdev.github.io/smokestat"
+  "homepage": "https://notsosmartdev.github.io/smokestat",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
