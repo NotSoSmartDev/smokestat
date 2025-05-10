@@ -2,8 +2,14 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { resolve } from 'path';
 
+// Get the repository name from package.json for GitHub Pages
+import { readFileSync } from 'fs';
+const pkgJson = JSON.parse(readFileSync('./package.json', 'utf8'));
+const repoName = pkgJson.homepage ? pkgJson.homepage.split('/').pop() : '';
+
 export default defineConfig({
   root: 'public',
+  base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
@@ -18,6 +24,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'icons/*.png'],
+      strategies: 'generateSW',
+      injectRegister: 'auto',
       manifest: {
         name: 'SmokeStats Tracker',
         short_name: 'SmokeStats',
@@ -26,6 +34,8 @@ export default defineConfig({
         background_color: '#f5f5f5',
         display: 'standalone',
         orientation: 'portrait',
+        start_url: './',
+        scope: '.',
         icons: [
           {
             src: 'icons/icon-192x192.png',

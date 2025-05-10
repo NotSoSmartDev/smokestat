@@ -1,7 +1,7 @@
 // app.js - Main application module for SmokeStats PWA
-import * as db from '/js/db.js';
-import * as ui from '/js/ui.js';
-import * as timer from '/js/timer.js';
+import * as db from './db.js';
+import * as ui from './ui.js';
+import * as timer from './timer.js';
 
 // Global state
 let deferredPrompt = null;

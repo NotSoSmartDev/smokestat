@@ -1,5 +1,5 @@
 // ui.js - UI module for managing the interface
-import { formatTimestamp, formatElapsedTime } from '/js/timer.js';
+import { formatTimestamp, formatElapsedTime } from './timer.js';
 
 // UI Elements
 let smokeButton = null;

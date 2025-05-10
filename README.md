@@ -52,6 +52,25 @@ npm run preview
 
 This will serve the production build locally for testing.
 
+### Deploy to GitHub Pages
+
+1. Update the `homepage` field in `package.json` with your GitHub Pages URL:
+   ```json
+   "homepage": "https://yourusername.github.io/smokestat"
+   ```
+
+2. Install the GitHub Pages deployment package:
+   ```
+   npm install --save-dev gh-pages
+   ```
+
+3. Deploy your app:
+   ```
+   npm run deploy
+   ```
+
+This will build your app and publish it to the `gh-pages` branch of your repository.
+
 ## Usage
 
 1. Press the "I SMOKED" button each time you smoke a cigarette
@@ -84,8 +103,48 @@ smokestat/
 │   ├── js/           # JavaScript modules
 │   └── icons/        # App icons
 ├── vite.config.js    # Vite configuration
-└── package.json      # Project dependencies
+├── package.json      # Project dependencies
+└── dist/             # Production build (generated)
 ```
+
+## GitHub Pages Deployment Guide
+
+### First-time Setup
+
+1. Create a GitHub repository named `smokestat`
+2. Initialize Git in your project folder:
+   ```
+   cd smokestat
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
+
+3. Connect to your GitHub repository:
+   ```
+   git remote add origin https://github.com/yourusername/smokestat.git
+   git push -u origin main
+   ```
+
+4. Deploy to GitHub Pages:
+   ```
+   npm run deploy
+   ```
+
+5. Configure GitHub Pages in your repository settings:
+   - Go to your repository on GitHub
+   - Navigate to Settings > Pages
+   - Set the source to the `gh-pages` branch
+   - Your site will be published at `https://yourusername.github.io/smokestat`
+
+### Subsequent Deployments
+
+After making changes to your app, simply run:
+```
+npm run deploy
+```
+
+This will build your app and push the changes to the `gh-pages` branch.
 
 ## Contributing
 
