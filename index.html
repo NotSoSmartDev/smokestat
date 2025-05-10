@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmokeStats Tracker</title>
+    <meta name="description" content="Track your cigarette consumption with this simple PWA">
+    
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlNtb2tlU3RhdHMgVHJhY2tlciIsCiAgInNob3J0X25hbWUiOiAiU21va2VTdGF0cyIsCiAgImRlc2NyaXB0aW9uIjogIlRyYWNrIHlvdXIgY2lnYXJldHRlIGNvbnN1bXB0aW9uIGRhaWx5IiwKICAic3RhcnRfdXJsIjogIi9pbmRleC5odG1sIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjVmNWY1IiwKICAidGhlbWVfY29sb3IiOiAiIzM0OThkYiIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaWNvbnMvaWNvbi0xOTJ4MTkyLnBuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJpY29ucy9pY29uLTUxMng1MTIucG5nIiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXSwKICAic2NyZWVuc2hvdHMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaWNvbnMvc2NyZWVuc2hvdDEucG5nIiwKICAgICAgInNpemVzIjogIjMyMHg2NDAiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICB9CiAgXSwKICAiY2F0ZWdvcmllcyI6IFsiaGVhbHRoIiwgImxpZmVzdHlsZSJdLAogICJkaXIiOiAibHRyIiwKICAibGFuZyI6ICJlbi1VUyIKfQ==">
+    <link rel="icon" href="icons/favicon.ico">
+    <meta name="theme-color" content="#3498db">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+  <script type="module" crossorigin src="/smokestat/assets/main-109eaf2a.js"></script>
+  <link rel="stylesheet" href="/smokestat/assets/index-79da6c1b.css">
+<link rel="manifest" href="/smokestat/manifest.webmanifest"></head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>SmokeStats</h1>
+            <div class="stats-container">
+                <div class="today-count">
+                    <span class="count-label">Today:</span>
+                    <span id="today-count" class="count-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="timer-container">
+                <span class="timer-label">Last cigarette:</span>
+                <span id="last-smoke-timer" class="timer-value">-</span>
+            </div>
+
+            <button id="smoke-button" class="smoke-button">
+                <span class="button-text">I SMOKED</span>
+            </button>
+
+            <div class="records-container">
+                <h2>Today's Records</h2>
+                <ul id="smoke-records" class="records-list">
+                    <!-- Records will be added here dynamically -->
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>SmokeStats PWA &copy; <span id="current-year"></span></p>
+        </footer>
+    </div>
+
+    
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
